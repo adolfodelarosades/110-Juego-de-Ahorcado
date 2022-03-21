@@ -17,6 +17,9 @@ export class AppComponent {
 
   intentos = 0;
 
+  gano = false;
+  perdio = false;
+
   constructor(){
     this.palabraOculta = '_ '.repeat( this.palabra.length);
  }
@@ -35,6 +38,22 @@ export class AppComponent {
     }
 
     this.palabraOculta = palabraOcultaArr.join(' ');
+    this.verificaGane();
+ }
+
+ verificaGane(){
+    const palabraArr = this.palabraOculta.split(' ');
+    const palabraEvaluar = palabraArr.join('');
+
+    if ( palabraEvaluar === this.palabra ){
+       this.gano = true;
+       console.log('Usuario GANO!!!');
+    }
+
+    if( this.intentos >= 9 ){
+       this.perdio = true;
+       console.log('Usuario PERDIO!!!');
+    }
  }
 
  existeLetra( letra: string){
