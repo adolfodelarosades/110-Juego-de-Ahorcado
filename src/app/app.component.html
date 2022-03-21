@@ -6,12 +6,12 @@
 </div>
 <div class ="row">
   <div class="col text-center">
-    <h3> _ _ _ _ _ _ _ _ _ _ </h3>
+    <h3>{{ palabraOculta }} </h3>
   </div>
 </div>
 <div class ="row">
   <div class="col text-center">
-    <button *ngFor="let letra of letras" class="btn btn-primary">
+    <button (click)="comprobar(letra)" *ngFor="let letra of letras" class="btn btn-primary">
       {{ letra }}
     </button>
   </div>
