@@ -15,11 +15,16 @@ export class AppComponent {
   palabra = 'AGUACATE';
   palabraOculta = '';
 
+  intentos = 0;
+
   constructor(){
     this.palabraOculta = '_ '.repeat( this.palabra.length);
  }
 
  comprobar(letra: string){
+
+    this.existeLetra(letra);
+
     const palabraOcultaArr = this.palabraOculta.split(' ');
 
     for( let i = 0; i < this.palabra.length; i++){
@@ -30,6 +35,15 @@ export class AppComponent {
     }
 
     this.palabraOculta = palabraOcultaArr.join(' ');
+ }
+
+ existeLetra( letra: string){
+    if( this.palabra.indexOf( letra ) >= 0 ){
+       console.log('La letra ' + letra + ' existe');
+    }else{
+       console.log('La letra ' + letra + ' NO existe');
+       this.intentos++;
+    }
  }
 
 }
