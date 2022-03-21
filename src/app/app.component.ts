@@ -20,7 +20,16 @@ export class AppComponent {
  }
 
  comprobar(letra: string){
-    console.log('Pulsaste la letra: ' + letra);
+    const palabraOcultaArr = this.palabraOculta.split(' ');
+
+    for( let i = 0; i < this.palabra.length; i++){
+
+       if( this.palabra[i] === letra ){
+          palabraOcultaArr[i] = letra;
+       }
+    }
+
+    this.palabraOculta = palabraOcultaArr.join(' ');
  }
 
 }
